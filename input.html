@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Data</title>
+</head>
+<body>
+    <h2>Form Input Pariwisata</h2>
+    <form action="input.php" method="post" onsubmit="return validateForm()">
+        <label>Nama Tempat:</label><br>
+        <input type="text" name="nama_tempat" required><br><br>
+
+        <label>Alamat:</label><br>
+        <textarea name="alamat" required></textarea><br><br>
+
+        <label>Kelurahan:</label><br>
+        <input type="text" name="kelurahan" required><br><br>
+
+        <label>Longitude:</label><br>
+        <input type="text" id="long" name="longitude" required><br><br>
+
+        <label>Latitude:</label><br>
+        <input type="text" id="lat" name="latitude" required><br><br>
+
+        <input type="submit" value="Simpan Data">
+    </form>
+    
+    <p id="informasi" style="color:red;"></p>
+
+    <script>
+    function validateForm() {
+        let lat = document.getElementById("lat").value;
+        let long = document.getElementById("long").value;
+        if (isNaN(lat) || isNaN(long)) {
+            document.getElementById("informasi").innerHTML = "Koordinat Longitude dan Latitude harus berupa angka!";
+            event.preventDefault();
+        }
+    }
+    </script>
+</body>
+</html>
